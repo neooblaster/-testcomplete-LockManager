@@ -1,0 +1,23 @@
+{
+    "name": "@testcomplete/lockmanager",
+    "version": "0.1.0",
+    "description": "A little library to handle lock file (check, set, release)",
+    "main": "LockManager.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "TestComplete",
+        "Automation",
+        "Interface",
+        "File",
+        "Lock Management System"
+    ],
+    "author": "Nicolas DUPRE",
+    "license": "ISC",
+    "dependencies": {
+        "@testcomplete/filesystemutil": "^0.1.1",
+        "@testcomplete/loggerutil": "^0.1.1",
+        "@testcomplete/sleep": "^0.1.2"
+    }
+}
