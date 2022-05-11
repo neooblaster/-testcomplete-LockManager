@@ -37,7 +37,7 @@ Script List for the setup :
 * ``./node_modules/@testcomplete/sleep/Sleep.js``
 * ``./node_modules/@testcomplete/lockmanager/LockManager.js``
 
-[@testcomplete/testcompletelibrarysetup](https://www.npmjs.com/package/@testcomplete/testcompletelibrarysetup)
+[TestComplete Library Setup](https://gitlab.viseo.com/testcomplete/documentations/testcompletelibrarysetup)
 
 
 
