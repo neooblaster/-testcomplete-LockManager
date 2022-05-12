@@ -1,6 +1,6 @@
 {
     "name": "@testcomplete/lockmanager",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "A little library to handle lock file (check, set, release)",
     "main": "LockManager.js",
     "scripts": {
