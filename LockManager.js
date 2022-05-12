@@ -6,7 +6,7 @@ let logger = require(`${sPrePath}LoggerUtil`);
 let sleep  = require(`${sPrePath}Sleep`);
 
 /**
- * Version v0.2.0
+ * Version v0.3.0
  *
  * @author: Nicolas DUPRE (VISEO)
  *
@@ -16,7 +16,6 @@ let sleep  = require(`${sPrePath}Sleep`);
  * @return {LockManager}
  * @constructor
  *
- * @TODO : isLockExists() : Method to check if the file exists
  */
 function LockManager () {
     let self = this;
@@ -127,7 +126,7 @@ function LockManager () {
      *
      * @return {boolean} Indicate if we get the lock.
      */
-    self.lock = function ($sLockName = self._sLockName, $sLockContent = '') {
+    self.lock = function ($sLockName = self._sLockName, $sLockContent = null) {
         // Argument handling
         if ($sLockName === null) {
             $sLockName = self._sLockName;
@@ -142,21 +141,40 @@ function LockManager () {
         do {
             nLastTS = new Date();
 
+            // In the case where we have provided lock content,
+            // check if the lock file content match (if it is the case, it's our lock)
+            if ($sLockContent !== null) {
+                if (self.isLockExists($sLockName, $sLockContent)) {
+                    // Simply indicated lock acquired.
+                    // No file creating required.
+                    bLocked = true;
+                    break;
+                }
+            }
+
+            // If the file does not exists, we can acquired the lock
+            // by creating the file
             if (!self.fs().exists(sLockPathFile)) {
                 self.fs().write(sLockPathFile, $sLockContent);
                 bLocked = true;
                 break;
             }
 
-            // TestComplete
-            try {
-                Indicator.PushText(`Waiting for lock '${$sLockName}'`);
-                Delay(self._nInterval);
-            }
-            // NodeJS
-            catch ($err) {
-                let waitTill = new Date(new Date().getTime() + self._nInterval);
-                while(waitTill > new Date()){}
+            // Do not perform any delay action if timeout is disabled.
+            if(self._nTimeout && self._nTimeout > 0){
+                // TestComplete
+                try {
+                    Indicator.PushText(`Waiting for lock '${$sLockName}'`);
+                    Delay(self._nInterval);
+                }
+                // NodeJS
+                catch ($err) {
+                    let waitTill = new Date(new Date().getTime() + self._nInterval);
+                    while(waitTill > new Date()){}
+                }
+            } else {
+                // Add 1 ms to lead loop condition to false (force only 1 execution)
+                nLastTS++;
             }
 
         } while (!bLocked && ((nLastTS - nStartAt) < self._nTimeout));
@@ -183,6 +201,31 @@ function LockManager () {
         if(self.isLockNameSet($sLockName)) return `${self._sLockFolderPath}${$sLockName}`;
 
         return false;
+    };
+
+    /**
+     * Check if the file corresponding to the lock exists in the folder.
+     *
+     * @param {String} $sLockName    Lock file name.
+     * @param {String }$sLockContent Check if the content match
+     *
+     * @return {boolean}    True if the file exists (and content match is provided)
+     */
+    self.isLockExists = function ($sLockName = self._sLockName, $sLockContent = null) {
+        // Argument handling
+        if ($sLockName === null) {
+            $sLockName = self._sLockName;
+        }
+
+        if (self.fs().exists(self.getLockFilePath($sLockName))) {
+            if ($sLockContent !== null) {
+                return $sLockContent === self.getLockContent($sLockName);
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
     };
 
     /**
@@ -218,9 +261,7 @@ function LockManager () {
      * @return {String|boolean} Content of false if file does not exists.
      */
     self.getLockContent = function ($sLockName = self._sLockName) {
-        let sLockPathFile = self.getLockFilePath($sLockName);
-
-        if (self.fs().exists(sLockPathFile)) return self.fs().read(sLockPathFile);
+        if(self.isLockExists($sLockName)) return self.fs().read(self.getLockFilePath($sLockName));
 
         return false;
     };
@@ -233,10 +274,8 @@ function LockManager () {
      * @return {boolean} true if lock file deleted, else false.
      */
     self.release = function ($sLockName = self._sLockName) {
-        let sLockPathFile = self.getLockFilePath($sLockName);
-
-        if (self.fs().exists(sLockPathFile)) {
-            self.fs().delete(sLockPathFile);
+        if (self.isLockExists($sLockName)) {
+            self.fs().delete(self.getLockFilePath($sLockName));
             return true;
         }
 

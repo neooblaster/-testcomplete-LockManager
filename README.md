@@ -2,13 +2,13 @@
 
 > A little library to handle lock file (check, set, release).
 
-* **Version** : ``v0.2.0``
+* **Version** : ``v0.3.0``
 * **Dependencies** :
-    * ``FileSystemUtim`` : [TestComplete/Core/FileSystemUtil](https://gitlab.viseo.com/testcomplete/core/filesystemutil)
+    * ``FileSystemUtil`` : [@testcomplete/filesystemutil](https://www.npmjs.com/package/%40testcomplete%2Ffilesystemutil)
         * ``./node_modules/@testcomplete/filesystemutil/FileSystemUtil.js``
-    * ``LoggerUtil`` : [TestComplete/Core/LoggerUtil](https://gitlab.viseo.com/testcomplete/core/loggerutil)
+    * ``LoggerUtil`` : [@testcomplete/loggerutil](https://www.npmjs.com/package/%40testcomplete%2Floggerutil)
         * ``./node_modules/@testcomplete/loggerutil/LoggerUtil.js``
-    * ``Sleep`` : [TestComplete/Library/Sleep](https://gitlab.viseo.com/testcomplete/library/sleep)
+    * ``Sleep`` : [@testcomplete/sleep](https://www.npmjs.com/package/%40testcomplete%2Fsleep)
         * ``./node_modules/@testcomplete/sleep/Sleep.js``
     
 
@@ -37,7 +37,7 @@ Script List for the setup :
 * ``./node_modules/@testcomplete/sleep/Sleep.js``
 * ``./node_modules/@testcomplete/lockmanager/LockManager.js``
 
-[TestComplete Library Setup](https://gitlab.viseo.com/testcomplete/documentations/testcompletelibrarysetup)
+[@testcomplete/testcompletelibrarysetup](https://www.npmjs.com/package/@testcomplete/testcompletelibrarysetup)
 
 
 
@@ -208,7 +208,7 @@ LockMgr.setInterval(5000);
 
 ### Get & Set Lock ``lock()``
 
-> Boolean lock( [ String $sLockName = self._sLockName [, String $sLockContent = ''] ] )
+> Boolean lock( [ String $sLockName = self._sLockName [, String $sLockContent = null ] ] )
 >
 > - Where self._sLockName set with method ``setLockName()``.
 
@@ -230,9 +230,17 @@ if(LockMgr.lock()){
 }
 ````
 
-You can pass data to put in the lock file by filling the second argument.
+You can pass data to add content in the lock file by filling the second argument.
 In that case, you have to provided the first argument which is the lock name.
-Set ``null`` to previously lock name set with method `setLockName()`.
+Set ``null`` to use lock name previously set with method `setLockName()`.
+
+**Important** : If you pass data to fill the lock file content (2nd argument), 
+``lock()`` method will check for the content when the lock file will exists.
+In the case where the content will match, ``lock()`` will returns `true` indicating
+we retrieved the lock for our usage, considering that lock has been
+set by this processing, else it returns ``false`` as expected.
+**So the lock content must be very specific and unique as like a process ID. That
+could lead to concurrent execution if content is too general**.
 
 ````javascript
 if(LockMgr.lock(null, 'Process ID : 1234')){
@@ -260,6 +268,34 @@ it returns ``false``.
 ````javascript
 // We do not care about the success or not of the lock file deletion.
 LockMgr.release();
+````
+
+
+
+### Check if lock file exists ``isLockExists()``
+
+> Boolean isLockExists( [ String $sLockName = self._sLockName [, String $sLockContent = null ] ] )
+>
+> - Where self._sLockName set with method ``setLockName()``.
+
+In most of the cases, you will only need to set lock with ``lock()``
+and release it with ``release()``. But if you need to perform a check from your
+side, for any purpose, you can simply use ``isLockExists()``
+which returns ``true`` if it exists, else returns `false`.
+
+You can perform a deeper check to see if the lock file content
+match with specified text (standing for retrieving lock for your own usage).
+In that case, you have to provided the first argument which is the lock name.
+Set ``null`` to use lock name previously set with method `setLockName()`.
+
+````javascript
+// If lock exist and created by my process ID, it's OK,
+// do not wait that the lock is freed to resume processing.
+if(LockMgr.isLockExists(null, 'Process ID : 1234') || LockMgr.lock()){
+    // Perform process (works next to a crash)
+} else {
+    // Lock not already set neither acquired.
+}
 ````
 
 
