@@ -4,11 +4,11 @@
 
 * **Version** : ``v0.3.0``
 * **Dependencies** :
-    * ``FileSystemUtil`` : [@testcomplete/filesystemutil](https://www.npmjs.com/package/%40testcomplete%2Ffilesystemutil)
+    * ``FileSystemUtil`` : [TestComplete/Core/FileSystemUtil](https://gitlab.viseo.com/testcomplete/core/filesystemutil)
         * ``./node_modules/@testcomplete/filesystemutil/FileSystemUtil.js``
-    * ``LoggerUtil`` : [@testcomplete/loggerutil](https://www.npmjs.com/package/%40testcomplete%2Floggerutil)
+    * ``LoggerUtil`` : [TestComplete/Core/LoggerUtil](https://gitlab.viseo.com/testcomplete/core/loggerutil)
         * ``./node_modules/@testcomplete/loggerutil/LoggerUtil.js``
-    * ``Sleep`` : [@testcomplete/sleep](https://www.npmjs.com/package/%40testcomplete%2Fsleep)
+    * ``Sleep`` : [TestComplete/Library/Sleep](https://gitlab.viseo.com/testcomplete/library/sleep)
         * ``./node_modules/@testcomplete/sleep/Sleep.js``
     
 
@@ -37,7 +37,7 @@ Script List for the setup :
 * ``./node_modules/@testcomplete/sleep/Sleep.js``
 * ``./node_modules/@testcomplete/lockmanager/LockManager.js``
 
-[@testcomplete/testcompletelibrarysetup](https://www.npmjs.com/package/@testcomplete/testcompletelibrarysetup)
+[TestComplete Library Setup](https://gitlab.viseo.com/testcomplete/documentations/testcompletelibrarysetup)
 
 
 
