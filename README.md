@@ -2,19 +2,38 @@
 
 > A little library to handle lock file (check, set, release).
 
-* **Version** : ``v0.3.0``
+* **Version** : ``v0.3.1``
+* **Compatibility** : **TestComplete** only
+* **Script** : ``./node_modules/@testcomplete/lockmanager/LockManager.js``
 * **Dependencies** :
-    * ``FileSystemUtil`` : [TestComplete/Core/FileSystemUtil](https://gitlab.viseo.com/testcomplete/core/filesystemutil)
+    * ``FileSystemUtil`` : [@testcomplete/filesystemutil](https://www.npmjs.com/package/%40testcomplete%2Ffilesystemutil)
         * ``./node_modules/@testcomplete/filesystemutil/FileSystemUtil.js``
-    * ``LoggerUtil`` : [TestComplete/Core/LoggerUtil](https://gitlab.viseo.com/testcomplete/core/loggerutil)
+    * ``LoggerUtil`` : [@testcomplete/loggerutil](https://www.npmjs.com/package/%40testcomplete%2Floggerutil)
         * ``./node_modules/@testcomplete/loggerutil/LoggerUtil.js``
-    * ``Sleep`` : [TestComplete/Library/Sleep](https://gitlab.viseo.com/testcomplete/library/sleep)
+    * ``Sleep`` : [@testcomplete/sleep](https://www.npmjs.com/package/%40testcomplete%2Fsleep)
         * ``./node_modules/@testcomplete/sleep/Sleep.js``
     
 
 ## Summary
 
-[](MakeSummary)
+[](BeginSummary)
+* [Summary](#summary)
+* [LockManager Setup for TestComplete](#lockmanager-setup-for-testcomplete)
+* [Get Started](#get-started)
+    * [Requiring Libary](#requiring-libary)
+    * [Setting Up Lock Manager](#setting-up-lock-manager)
+    * [Putting / Releasing lock file](#putting-releasing-lock-file)
+* [Detailed Documentation](#detailed-documentation)
+    * [Setting Up Lock Name ``setLockName()``](#setting-up-lock-name-setlockname)
+    * [Setting Up Lock Folder Path ``setLockFolderPath()``](#setting-up-lock-folder-path-setlockfolderpath)
+    * [Setting Timeout ``setTimeout()``](#setting-timeout-settimeout)
+    * [Setting Interval ``setInterval()``](#setting-interval-setinterval)
+    * [Get & Set Lock ``lock()``](#get-&-set-lock-lock)
+    * [Release Lock ``release()``](#release-lock-release)
+    * [Check if lock file exists ``isLockExists()``](#check-if-lock-file-exists-islockexists)
+    * [Get Lock content ``getLockContent()``](#get-lock-content-getlockcontent)
+    * [Retrieve full path of Lock ``getLockFilePath()``](#retrieve-full-path-of-lock-getlockfilepath)
+[](EndSummary)
 
 
 
@@ -37,7 +56,7 @@ Script List for the setup :
 * ``./node_modules/@testcomplete/sleep/Sleep.js``
 * ``./node_modules/@testcomplete/lockmanager/LockManager.js``
 
-[TestComplete Library Setup](https://gitlab.viseo.com/testcomplete/documentations/testcompletelibrarysetup)
+[@testcomplete/testcompletelibrarysetup](https://www.npmjs.com/package/@testcomplete/testcompletelibrarysetup)
 
 
 

@@ -1,5 +1,13 @@
 # LockManager Changelog
 
+## Version 0.3.1 - 2022.05.16
+
+* [UPDATE] Update **README.md** :
+    - Add **compatibility** of the library
+    - Update **Summary** and it links.
+
+
+
 ## Version 0.3.0 - 2022.05.12
 
 * [NEW] new function ``isLockExists()`` which check if the file exists and

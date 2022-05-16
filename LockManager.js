@@ -6,7 +6,7 @@ let logger = require(`${sPrePath}LoggerUtil`);
 let sleep  = require(`${sPrePath}Sleep`);
 
 /**
- * Version v0.3.0
+ * Version v0.3.1
  *
  * @author: Nicolas DUPRE (VISEO)
  *
