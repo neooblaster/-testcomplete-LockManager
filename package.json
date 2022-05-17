@@ -3,9 +3,6 @@
     "version": "0.3.1",
     "description": "A little library to handle lock file (check, set, release)",
     "main": "LockManager.js",
-    "bin": {
-        "lockmanager": "LockManager.js"
-    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },

@@ -1,5 +1,13 @@
 # LockManager Changelog
 
+## Version 0.3.2 - 2022.05.17
+
+* [UPDATE] Update ``package.json``
+* [UPDATE] Update dependencies **requirements** to use ``@estcomplete`` scope
+as expected.
+
+
+
 ## Version 0.3.1 - 2022.05.16
 
 * [UPDATE] Update **README.md** :

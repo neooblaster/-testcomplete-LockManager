@@ -1,12 +1,12 @@
-// Check for NodeJS. If NodeJS, require need relative path
-let sPrePath = typeof process !== 'undefined' ? './' : '';
+// Check for NodeJS. If NodeJS, require to use dependencies (in scope)
+let sPrePath = typeof process !== 'undefined' ? '@testcomplete/' : '';
 
 let fs     = require(`${sPrePath}FileSystemUtil`);
 let logger = require(`${sPrePath}LoggerUtil`);
 let sleep  = require(`${sPrePath}Sleep`);
 
 /**
- * Version v0.3.1
+ * Version v0.3.2
  *
  * @author: Nicolas DUPRE (VISEO)
  *
