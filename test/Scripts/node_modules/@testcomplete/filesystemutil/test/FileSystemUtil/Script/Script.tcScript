@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{9252F941-DB23-4FCA-AA50-858B33BB4A19}" version="11.40">
+	<children>
+		<folder name="Library">
+			<child name="FileSystemUtil" key="{64E26C58-CCEA-4FFD-8678-4F22C2296D0C}" path="..\..\..\FileSystemUtil.js" />
+		</folder>
+		<folder name="Scripts">
+			<folder name="UnitTest">
+				<child name="tests" key="{B5BE68D3-D082-41AB-852A-80F8071E41B8}" path="tests.js" />
+			</folder>
+			<child name="aReadFile" key="{F23BA0AA-37AF-4C28-975B-1AB8760A9039}" path="aReadFile.js" />
+			<child name="bWriteFile" key="{FB01EE4C-3805-43E9-9EAF-3F44294308EF}" path="bWriteFile.js" />
+			<child name="cDeleteFile" key="{86F7969C-B9ED-49B1-9144-C34CE556A2C9}" path="cDeleteFile.js" />
+			<child name="dExists" key="{3286469C-3A10-4F60-A872-427518819A67}" path="dExists.js" />
+			<child name="zInitializeTest" key="{D32C8033-C653-4A9B-BC20-1561997F1040}" path="zInitializeTest.js" />
+		</folder>
+	</children>
+</Root>

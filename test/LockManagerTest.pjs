@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{24B6FA0B-0143-461A-9758-AEB9E9A9428B}" version="15.0" key="{BEB38B0D-C074-4E28-A1BC-56965B659F5D}">
+	<children>
+		<child name="LockManagerTest" key="{C127F8C2-8132-47E2-8899-AE53D243E06F}" path="LockManagerTest\LockManagerTest.mds" />
+	</children>
+	<testItems key="{BBE9F4C7-3AE2-407B-BF22-B93E4BB25D6E}">
+		<children>
+			<testItem key="{C127F8C2-8132-47E2-8899-AE53D243E06F}" enabled="True" timeout="0" stopOnError="True" description="" />
+		</children>
+	</testItems>
+	<variables key="{AB61E603-7702-4DE3-BF45-79F4A9C98F33}" />
+	<analysis key="{E59DBD47-55E9-4668-8C46-02FC10D2FA73}" />
+	<scc key="{00000000-0000-0000-0000-000000000000}" name="">
+		<data />
+	</scc>
+</Root>

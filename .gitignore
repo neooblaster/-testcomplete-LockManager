@@ -2,3 +2,4 @@
 *viseo*
 *npmjs*
 node_modules/*
+test/LockManagerTest/Log/*

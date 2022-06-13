@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{9252F941-DB23-4FCA-AA50-858B33BB4A19}" version="11.40">
+	<children>
+		<folder name="Library">
+			<child name="FileSystemUtil" key="{ACDF75BA-D9AE-4541-83E9-83324C5350C6}" path="..\..\Scripts\node_modules\@testcomplete\filesystemutil\FileSystemUtil.js" />
+			<child name="LockManager" key="{7C31B434-4175-4047-8E07-D2A9D361BC7D}" path="..\..\..\LockManager.js" />
+			<child name="LoggerUtil" key="{5930D348-94AC-4C95-A464-0B9D879742FA}" path="..\..\Scripts\node_modules\@testcomplete\loggerutil\LoggerUtil.js" />
+			<child name="Sleep" key="{8D233A6F-C28B-4290-AD37-413CDE5E4A20}" path="..\..\Scripts\node_modules\@testcomplete\sleep\Sleep.js" />
+		</folder>
+		<folder name="Scripts">
+			<child name="PuttingLock" key="{6E5EB5F6-E706-4D0C-BA0A-F608E58EE1F4}" path="PuttingLock.js" />
+			<child name="ReleasingLock" key="{2980AF0B-AA83-4F4B-B7C9-990D59B9E283}" path="ReleasingLock.js" />
+			<child name="ConcurrentTestSimulation" key="{137C10A7-AF37-495F-9666-FD25391F0488}" path="ConcurrentTestSimulation.js" />
+		</folder>
+	</children>
+</Root>

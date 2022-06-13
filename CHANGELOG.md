@@ -1,5 +1,14 @@
 # LockManager Changelog
 
+## Version 0.3.3 - 2022.06.13
+
+* [FIXED] Fix an issue where text comparison from the lock file will not works
+with numeric chars (strict test with `===`).
+* [ADD] The development & user test TestComplete project is now available in
+folder `./test`.
+
+
+
 ## Version 0.3.2 - 2022.05.17
 
 * [UPDATE] Update ``package.json``

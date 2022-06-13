@@ -6,7 +6,7 @@ let logger = require(`${sPrePath}LoggerUtil`);
 let sleep  = require(`${sPrePath}Sleep`);
 
 /**
- * Version v0.3.2
+ * Version v0.3.3
  *
  * @author: Nicolas DUPRE (VISEO)
  *
@@ -125,6 +125,9 @@ function LockManager () {
      * @param {String} $sLockContent Optional, content to append in the lock file.
      *
      * @return {boolean} Indicate if we get the lock.
+     *
+     * @TODO : Add flag to prevent log (stopping) to let the developer handling error with the boolean
+     *
      */
     self.lock = function ($sLockName = self._sLockName, $sLockContent = null) {
         // Argument handling
@@ -219,7 +222,7 @@ function LockManager () {
 
         if (self.fs().exists(self.getLockFilePath($sLockName))) {
             if ($sLockContent !== null) {
-                return $sLockContent === self.getLockContent($sLockName);
+                return String($sLockContent) === String(self.getLockContent($sLockName));
             } else {
                 return true;
             }

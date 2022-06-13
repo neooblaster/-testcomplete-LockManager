@@ -16,7 +16,7 @@
     "author": "Nicolas DUPRE",
     "license": "ISC",
     "dependencies": {
-        "@testcomplete/filesystemutil": "^0.1.1",
+        "@testcomplete/filesystemutil": "^0.1.3",
         "@testcomplete/loggerutil": "^0.1.1",
         "@testcomplete/sleep": "^0.1.2"
     },

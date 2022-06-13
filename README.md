@@ -2,7 +2,7 @@
 
 > A little library to handle lock file (check, set, release).
 
-* **Version** : ``v0.3.2``
+* **Version** : ``v0.3.3``
 * **Compatibility** : **TestComplete** - **NodeJS**
 * **Script** : ``./node_modules/@testcomplete/lockmanager/LockManager.js``
 * **Dependencies** :
@@ -12,6 +12,7 @@
         * ``./node_modules/@testcomplete/loggerutil/LoggerUtil.js``
     * ``Sleep`` : [@testcomplete/sleep](https://www.npmjs.com/package/%40testcomplete%2Fsleep)
         * ``./node_modules/@testcomplete/sleep/Sleep.js``
+* **Test Project** : ``./test/LockManagerTest.pjs``
     
 
 ## Summary
@@ -42,7 +43,6 @@
 As this library is published on **npmjs**,
 you can easily get library with the following command
 if you have **nodejs** installed on your computer.
-
 ````bash
 npm install @testcomplete/lockmanager
 ````

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{24B6FA0B-0143-461A-9758-AEB9E9A9428B}" version="15.0" key="{BFBCB139-0158-428B-99F3-69050DE82DC2}">
+	<children>
+		<child name="FileSystemUtil" key="{76EFDE3E-4E59-4E1F-83D7-122000E077FB}" path="FileSystemUtil\FileSystemUtil.mds" />
+	</children>
+	<testItems key="{E9A6391A-C131-4C89-9A49-68E62DA51B8E}">
+		<children>
+			<testItem key="{76EFDE3E-4E59-4E1F-83D7-122000E077FB}" enabled="True" timeout="0" stopOnError="True" description="" />
+		</children>
+	</testItems>
+	<variables key="{64C57E83-D8E2-47F5-8F6C-7CB9D892D3DE}" />
+	<analysis key="{FD1031C4-AEC6-4EC7-BCA9-677127C7EC71}" />
+	<scc key="{00000000-0000-0000-0000-000000000000}" name="">
+		<data />
+	</scc>
+</Root>
